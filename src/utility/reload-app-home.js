@@ -6,6 +6,8 @@ import { logger } from "../logger";
 
 module.exports = async (client, slackUserID) => {
   try {
+
+    
     let response = await service.getJiraIssues();
     await client.views.publish({
       user_id: slackUserID,

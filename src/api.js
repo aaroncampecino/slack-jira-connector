@@ -8,11 +8,14 @@ axios.defaults.validateStatus = false;
 
 const api = axios.create({
   baseURL: BASE_URL,
+  auth: {
+    username: process.env.JIRA_USERNAME,
+    password: process.env.JIRA_TOKEN
+  }
 });
 
 api.interceptors.request.use(
   (config) => {
-    config.headers["X-Request-Id"] = `${uuidv4()}`;
     return config;
   },
   (error) => {
