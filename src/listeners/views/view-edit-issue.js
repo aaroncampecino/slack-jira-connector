@@ -45,7 +45,7 @@ const editIssueCallback = async ({ ack, view, body, client }) => {
     response === "ERR_CONNECTION_REFUSED" ||
     response.status !== 204 ||
     responseStatus === "ERR_CONNECTION_REFUSED" ||
-    responseStatus !== 204
+    responseStatus.status !== 204
   ) {
     await ack();
     client.views.open({
