@@ -4,6 +4,7 @@ import { modals } from "../../user-interface";
 import { reloadAppHome } from "../../utility";
 
 const createIssueCallback = async ({ ack, view, body, client }) => {
+  await ack();
   const providedValues = view.state.values;
 
   const summary = providedValues.summary.summary.value;
@@ -33,7 +34,6 @@ const createIssueCallback = async ({ ack, view, body, client }) => {
   logger.info(`response status ${response.status}`);
 
   if (response === "ERR_CONNECTION_REFUSED" || response.status !== 201) {
-    await ack();
     client.views.open({
       trigger_id: body.trigger_id,
       view: modals.modalInfo(
@@ -46,7 +46,6 @@ const createIssueCallback = async ({ ack, view, body, client }) => {
     return;
   }
 
-  await ack();
   reloadAppHome(client, body.user.id);
 };
 

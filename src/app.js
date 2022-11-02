@@ -24,8 +24,8 @@ switch (process.env.LOG_LEVEL) {
 const app = new App({
   signingSecret: process.env.SLACK_BOT_SIGNING_SECRET,
   token: process.env.SLACK_BOT_TOKEN,
-  appToken: process.env.SLACK_APP_TOKEN,
-  socketMode: process.env.SLACK_SOCKET_MODE === "true",
+  // appToken: process.env.SLACK_APP_TOKEN,
+  // socketMode: process.env.SLACK_SOCKET_MODE === "true",
   logLevel: logLevel,
   customRoutes: [
     {
