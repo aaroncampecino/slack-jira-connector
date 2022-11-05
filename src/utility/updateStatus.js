@@ -58,6 +58,8 @@ module.exports = async (respond, say, commandText) => {
       await respond(`Error encountered. Please contact admin.`);
       logger.error(response.status);
       logger.error(response.data);
+    } else {
+      await respond(`Status updated successfully!`);
     }
     return;
   }
@@ -78,6 +80,8 @@ module.exports = async (respond, say, commandText) => {
       await respond(`Error encountered. Please contact admin.`);
       logger.error(response.status);
       logger.error(response.data);
+    } else {
+      await respond(`Summary updated successfully!`);
     }
     return;
   }
@@ -98,6 +102,8 @@ module.exports = async (respond, say, commandText) => {
       await respond(`Error encountered. Please contact admin.`);
       logger.error(response.status);
       logger.error(response.data);
+    } else {
+      await respond(`Description updated successfully!`);
     }
     return;
   }
