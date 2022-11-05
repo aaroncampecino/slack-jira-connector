@@ -49,7 +49,7 @@ module.exports = (data) => {
     issues.push(
       Divider(),
       Section({
-        text: `ID: \`${issue.key}\`\nSummary: ${issue.fields.summary}\nDescription: ${issue.fields.description}\nIssue Type: ${issue.fields.issuetype.name}\nStatus: ${issue.fields.status.name}`,
+        text: `ID: \`${issue.key}\`\nSummary: ${issue.fields.summary}\nDescription: ${issue.fields.description}\nStatus: ${issue.fields.status.name}`,
       }),
       actions
     );

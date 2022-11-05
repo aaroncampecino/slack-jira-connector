@@ -41,13 +41,6 @@ const app = new App({
 
 registerListeners(app);
 
-app.command("/jira", async ({ command, ack, respond }) => {
-  // Acknowledge command request
-  await ack();
-
-  await respond(`${command.text}`);
-});
-
 (async () => {
   // Start the app
   await app.start(process.env.PORT);
