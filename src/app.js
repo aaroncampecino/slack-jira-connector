@@ -41,7 +41,7 @@ const app = new App({
 
 registerListeners(app);
 
-app.command("/echo", async ({ command, ack, respond }) => {
+app.command("/jira", async ({ command, ack, respond }) => {
   // Acknowledge command request
   await ack();
 
