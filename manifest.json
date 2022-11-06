@@ -17,7 +17,7 @@
     "slash_commands": [
       {
         "command": "/jira",
-        "url": "https://web-production-1c5b.up.railway.app/slack/events",
+        "url": "https://847a-2001-4455-107-8800-91fb-3e5-5fbf-9454.ngrok.io/slack/events",
         "description": "List all bug issues",
         "usage_hint": "[test]",
         "should_escape": false
@@ -26,7 +26,7 @@
   },
   "oauth_config": {
     "redirect_urls": [
-      "https://web-production-1c5b.up.railway.app/slack/oauth_redirect"
+      "https://847a-2001-4455-107-8800-91fb-3e5-5fbf-9454.ngrok.io/slack/oauth_redirect"
     ],
     "scopes": {
       "user": ["channels:read", "channels:write", "chat:write", "users:write"],
@@ -48,15 +48,15 @@
   },
   "settings": {
     "event_subscriptions": {
-      "request_url": "https://web-production-1c5b.up.railway.app/slack/events",
+      "request_url": "https://847a-2001-4455-107-8800-91fb-3e5-5fbf-9454.ngrok.io/slack/events",
       "bot_events": ["app_home_opened", "message.channels", "message.groups"]
     },
     "interactivity": {
       "is_enabled": true,
-      "request_url": "https://web-production-1c5b.up.railway.app/slack/events"
+      "request_url": "https://847a-2001-4455-107-8800-91fb-3e5-5fbf-9454.ngrok.io/slack/events"
     },
     "org_deploy_enabled": false,
     "socket_mode_enabled": false,
-    "token_rotation_enabled": false
+    "token_rotation_enabled": true
   }
 }
