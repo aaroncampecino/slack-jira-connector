@@ -28,13 +28,13 @@ switch (process.env.LOG_LEVEL) {
 
 const app = new App({
   signingSecret: process.env.SLACK_BOT_SIGNING_SECRET,
-  token: process.env.SLACK_BOT_TOKEN,
+  // token: process.env.SLACK_BOT_TOKEN,
   clientId: process.env.SLACK_CLIENT_ID,
   // appToken: process.env.SLACK_APP_TOKEN,
   // socketMode: process.env.SLACK_SOCKET_MODE === "true",
   clientSecret: process.env.SLACK_CLIENT_SECRET,
   logLevel: logLevel,
-  customRoutes: customRoutes,
+  customRoutes: customRoutes.customRoutes,
   stateSecret: "aaron-the-great",
   installerOptions: {
     stateVerification: false,

@@ -1,4 +1,4 @@
-const manifest = require("./../manifest.json");
+const manifest = require("../../manifest.json");
 
 const oauthRedirect = manifest.oauth_config.redirect_urls[0];
 const botSopes = manifest.oauth_config.scopes.bot;
