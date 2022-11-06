@@ -17,6 +17,7 @@
     "@slack/bolt": "^3.11.0",
     "dotenv": "^16.0.1",
     "esm": "^3.2.25",
+    "mongoose": "^6.7.1",
     "node-schedule": "^2.1.0",
     "slack-block-builder": "^2.5.0",
     "uuid": "^9.0.0",
