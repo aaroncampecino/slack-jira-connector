@@ -38,7 +38,7 @@ const app = new App({
   stateSecret: "aaron-the-great",
   installerOptions: {
     stateVerification: false,
-    directInstall: true,
+    // directInstall: true,
   },
   installationStore: {
     storeInstallation: async (installation) => {
