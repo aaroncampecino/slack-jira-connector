@@ -23,9 +23,8 @@ const hiCallback = async ({
   console.log(JSON.stringify(event));
 
   client.chat.postMessage({
-    channel: "C03DZ4H9WF8",
-    token:
-      "xoxe.xoxb-1-MS0yLTM0ODE3ODg2NTQ2NTgtMzk4OTgwNDE5Nzg3NS0zOTc1MzQzNTU4NDU1LTQ0MjU1NjA5MTgxMDAtZjlmNmI3ZjRkMTVlNDE4M2I4MWNmNzBhYWYxZDIyMTNhNGU2OWY5Yzc3Y2VkMjhlY2IzY2M4NjYwNzllYzRjOQ",
+    channel: process.env.WORKSPACE_2_CHANNEL,
+    token: process.env.WORKSPACE_2_TOKEN,
     text: `<!channel> this is from Workspace 1`,
   });
 
