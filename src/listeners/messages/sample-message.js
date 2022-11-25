@@ -25,7 +25,7 @@ const hiCallback = async ({
   client.chat.postMessage({
     channel: process.env.WORKSPACE_2_CHANNEL,
     token: process.env.WORKSPACE_2_TOKEN,
-    text: `<!channel> this is from Workspace 1`,
+    text: `${message.text}`,
   });
 
   say(`hello mofos`);
