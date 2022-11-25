@@ -72,8 +72,6 @@ const app = new App({
   },
 });
 
-// app.message;
-
 registerListeners(app);
 
 (async () => {
