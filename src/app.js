@@ -44,32 +44,40 @@ const app = new App({
   },
   installationStore: {
     storeInstallation: async (installation) => {
-      console.log("installation: " + installation);
-      console.log(installation);
       if (
         installation.isEnterpriseInstall &&
         installation.enterprise !== undefined
       ) {
-        return orgAuth.saveUserOrgInstall(installation);
+        return await orgAuth.saveUserOrgInstall(installation);
       }
       if (installation.team !== undefined) {
-        return workspaceAuth.saveUserWorkspaceInstall(installation);
+        return await workspaceAuth.saveUserWorkspaceInstall(installation);
       }
       throw new Error("Failed saving installation data to installationStore");
     },
     fetchInstallation: async (installQuery) => {
-      console.log("installQuery: " + installQuery);
-      console.log(installQuery);
       if (
         installQuery.isEnterpriseInstall &&
         installQuery.enterpriseId !== undefined
       ) {
-        return dbQuery.findUser(installQuery.enterpriseId);
+        return await dbQuery.findUser(installQuery.enterpriseId);
       }
       if (installQuery.teamId !== undefined) {
-        return dbQuery.findUser(installQuery.teamId);
+        return await dbQuery.findUser(installQuery.teamId);
       }
       throw new Error("Failed fetching installation");
+    },
+    deleteInstallation: async (installQuery) => {
+      if (
+        installQuery.isEnterpriseInstall &&
+        installQuery.enterpriseId !== undefined
+      ) {
+        return await dbQuery.deleteUser(installQuery.enterpriseId);
+      }
+      if (installQuery.teamId !== undefined) {
+        return await dbQuery.deleteUser(installQuery.teamId);
+      }
+      throw new Error("Failed to delete installation");
     },
   },
 });
