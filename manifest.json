@@ -35,14 +35,15 @@
         "channels:history",
         "channels:read",
         "chat:write",
+        "commands",
         "groups:history",
         "groups:read",
+        "incoming-webhook",
         "reactions:read",
+        "team:read",
         "users:read",
         "users:read.email",
-        "team:read",
-        "incoming-webhook",
-        "commands"
+        "chat:write.customize"
       ]
     }
   },
