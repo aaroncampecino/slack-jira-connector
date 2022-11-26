@@ -7,6 +7,7 @@ const workspaceAuth = require("./database/auth/store_user_workspace_install");
 const db = require("./database/db");
 const dbQuery = require("./database/find_user");
 const customRoutes = require("./utility/custom_routes");
+const manifest = require("../manifest.json");
 
 let logLevel;
 switch (process.env.LOG_LEVEL) {
@@ -32,6 +33,7 @@ const app = new App({
   clientId: process.env.SLACK_CLIENT_ID,
   // appToken: process.env.SLACK_APP_TOKEN,
   // socketMode: process.env.SLACK_SOCKET_MODE === "true",
+  scopes: manifest.oauth_config.scopes.bot,
   clientSecret: process.env.SLACK_CLIENT_SECRET,
   logLevel: logLevel,
   customRoutes: customRoutes.customRoutes,
