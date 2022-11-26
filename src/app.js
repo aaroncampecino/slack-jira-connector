@@ -5,7 +5,7 @@ import { logger } from "./logger";
 const orgAuth = require("./database/auth/store_user_org_install");
 const workspaceAuth = require("./database/auth/store_user_workspace_install");
 const db = require("./database/db");
-const dbQuery = require("./database/find_user");
+const user = require("./database/model/User");
 const customRoutes = require("./utility/custom_routes");
 const manifest = require("../manifest.json");
 
@@ -60,10 +60,10 @@ const app = new App({
         installQuery.isEnterpriseInstall &&
         installQuery.enterpriseId !== undefined
       ) {
-        return await dbQuery.findUser(installQuery.enterpriseId);
+        return await user.findUser(installQuery.enterpriseId);
       }
       if (installQuery.teamId !== undefined) {
-        return await dbQuery.findUser(installQuery.teamId);
+        return await user.findUser(installQuery.teamId);
       }
       throw new Error("Failed fetching installation");
     },
@@ -72,10 +72,10 @@ const app = new App({
         installQuery.isEnterpriseInstall &&
         installQuery.enterpriseId !== undefined
       ) {
-        return await dbQuery.deleteUser(installQuery.enterpriseId);
+        return await user.deleteUser(installQuery.enterpriseId);
       }
       if (installQuery.teamId !== undefined) {
-        return await dbQuery.deleteUser(installQuery.teamId);
+        return await user.deleteUser(installQuery.teamId);
       }
       throw new Error("Failed to delete installation");
     },

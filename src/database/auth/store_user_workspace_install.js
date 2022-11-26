@@ -1,4 +1,4 @@
-const model = require("../db");
+const model = require("../model/User");
 
 const saveUserWorkspaceInstall = async (installation) => {
   try {

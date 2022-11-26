@@ -1,21 +1,4 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
-
-const uri =
-  "mongodb+srv://" +
-  process.env.DB_USERNAME +
-  ":" +
-  process.env.DB_PASSWORD +
-  "@cluster0.kmgizju.mongodb.net/" +
-  process.env.DB_NAME +
-  "?retryWrites=true&w=majority";
-
-// console.log(uri);
-
-const connect = async function () {
-  // Connect to MongoDB
-  mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-};
 
 const usersSchema = mongoose.Schema(
   {
@@ -51,15 +34,32 @@ const usersSchema = mongoose.Schema(
   { _id: false }
 );
 
-const channelsSchema = mongoose.Schema({
-  _id: String, //team id of client workspace
-  fromChannelId: String, //channel id of admin workspace
-  toChannelId: String, //channel id of client workspace
-});
-
 const User = mongoose.model("User", usersSchema);
-const Channel = mongoose.model("Channel", channelsSchema);
+
+const findUser = async (id) => {
+  try {
+    const user = await model.User.findById(id);
+    if (user !== undefined) {
+      return user;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+  return false;
+};
+
+const deleteUser = async (id) => {
+  try {
+    await model.User.findByIdAndDelete(id);
+    return true;
+  } catch (error) {
+    console.error(error);
+  }
+  return false;
+};
 
 module.exports = {
-  connect,
+  findUser,
+  deleteUser,
+  User,
 };
