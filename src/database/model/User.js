@@ -38,7 +38,7 @@ const User = mongoose.model("User", usersSchema);
 
 const findUser = async (id) => {
   try {
-    const user = await model.User.findById(id);
+    const user = await User.findById(id);
     if (user !== undefined) {
       return user;
     }
@@ -50,7 +50,7 @@ const findUser = async (id) => {
 
 const deleteUser = async (id) => {
   try {
-    await model.User.findByIdAndDelete(id);
+    await User.findByIdAndDelete(id);
     return true;
   } catch (error) {
     console.error(error);
