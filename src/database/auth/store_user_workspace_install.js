@@ -1,4 +1,4 @@
-const model = require('../db');
+const model = require("../db");
 
 const saveUserWorkspaceInstall = async (installation) => {
   try {
@@ -7,9 +7,15 @@ const saveUserWorkspaceInstall = async (installation) => {
       {
         team: { id: installation.team.id, name: installation.team.name },
         // entperise id is null on workspace install
-        enterprise: { id: 'null', name: 'null' },
+        enterprise: { id: "null", name: "null" },
         // user scopes + token is null on workspace install
-        user: { token: 'null', scopes: 'null', id: installation.user.id },
+        user: {
+          token: installation.user.token,
+          scopes: installation.user.scopes,
+          id: installation.user.id,
+          refreshToken: installation.user.refreshToken,
+          expiresAt: installation.user.expiresAt,
+        },
         tokenType: installation.tokenType,
         isEnterpriseInstall: installation.isEnterpriseInstall,
         appId: installation.appId,
@@ -19,9 +25,17 @@ const saveUserWorkspaceInstall = async (installation) => {
           token: installation.bot.token,
           userId: installation.bot.userId,
           id: installation.bot.id,
+          refreshToken: installation.bot.refreshToken,
+          expiresAt: installation.bot.expiresAt,
+        },
+        incomingWebhook: {
+          url: installation.incomingWebhook.url,
+          channel: installation.incomingWebhook.channel,
+          channelId: installation.incomingWebhook.channelId,
+          configurationUrl: installation.incomingWebhook.configurationUrl,
         },
       },
-      { upsert: true },
+      { upsert: true }
     );
     return resp;
   } catch (error) {

@@ -7,20 +7,20 @@ const hiCallback = async ({
   payload,
   event,
 }) => {
-  console.log("context " + context);
-  console.log(JSON.stringify(context));
+  // console.log("context " + context);
+  // console.log(JSON.stringify(context));
 
-  console.log("body " + body);
-  console.log(JSON.stringify(body));
+  // console.log("body " + body);
+  // console.log(JSON.stringify(body));
 
-  console.log("message " + message);
-  console.log(JSON.stringify(message));
+  // console.log("message " + message);
+  // console.log(JSON.stringify(message));
 
-  console.log("payload " + payload);
-  console.log(JSON.stringify(payload));
+  // console.log("payload " + payload);
+  // console.log(JSON.stringify(payload));
 
-  console.log("event " + event);
-  console.log(JSON.stringify(event));
+  // console.log("event " + event);
+  // console.log(JSON.stringify(event));
 
   client.chat.postMessage({
     channel: process.env.WORKSPACE_2_CHANNEL,

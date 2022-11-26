@@ -5,7 +5,7 @@ const findUser = async (id) => {
     console.log(`id ${id}`);
     const user = await model.User.findById(id);
     // // return first user we find
-    console.log(user);
+    // console.log(user);
     if (user !== undefined) {
       return user;
     }
